@@ -1,0 +1,23 @@
+* {
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   text-align: center;
+   background-color: #000;
+   color: #ddd;
+}
+
+#xdate {
+   font-size: 4rem;
+}
+
+#time {
+   font-size: 15rem;
+}
+
+h2 {
+   margin-bottom: 0.5rem;
+   opacity: 0.6;
+}
