@@ -1,7 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "/Users/jerryhoover/Desktop/Coding Projects/projects/test"
-		}
-	]
+   "folders": [
+      {
+         "path": "/Users/jerryhoover/Desktop/Coding Projects/projects/test"
+      },
+      {
+         "path": "."
+      }
+   ],
+   "settings": {
+      "liveServer.settings.multiRootWorkspaceName": "kindle-clock"
+   }
 }
