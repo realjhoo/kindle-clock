@@ -14,8 +14,8 @@
         <span id="greeting">Greetings,</span>
         <span>Jerry</span>
     </h1>
-    <h2>What is your focus for today?</h2>
-    <h2>Make it work</h2>
+    <h2 id="moonphase"> - </h2>
+    <h2>I created this</h2>
 
     <!-- JavaScript Starts Here -->
     <script>
@@ -87,10 +87,51 @@
             }
         }
 
+        function showPhase() {
+            var phase = [
+                "New Moon",
+                "Waxing Crescent Moon",
+                "Quarter Moon",
+                "Waxing Gibbous Moon",
+                "Full Moon",
+                "Waning Gibbous Moon",
+                "Last Quarter Moon",
+                "Waning Crescent Moon"
+            ];
+            var c = e = jd = b = 0;
+            var today = new Date(),
+                dato = today.getDate(),
+                month = today.getMonth(),
+                year = today.getFullYear();
+
+            if (month < 3) {
+                year--;
+                month += 12;
+            }
+
+            month++;
+
+            c = 365.25 * year;
+            e = 30.6 * month;
+            jd = c + e + dato - 694039.09;
+            jd /= 29.5305882;
+            b = parseInt(jd);
+            jd -= b;
+            b = Math.round(jd * 8);
+
+            if (b >= 8) {
+                b = 0;
+            }
+
+            document.getElementById("moonphase").innerHTML = phase[b];
+
+        }
+
         function main() {
             showDate();
             showTime();
             setGreet();
+            showPhase();
             setTimeout(main, 5000);
         }
 
