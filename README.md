@@ -6,3 +6,4 @@
   3. Ternary operators were not recognized.
   4. In CSS, although `padding-bottom` worked, `padding-top` did not. In addition, it also did not understand `display: flex;`. Thus, the clock was centered horizontally with `<br>` tags. 
   5. The browser was able to recognize the HTML `contenteditable` attribute, but would not bring up a keyboard for it. Therefore, the bits that would nornally have been stored locally were simply hard coded.
+  6. UPDATE: Since #5 was annoying, I added code to determine the current moon phase and display that instead.
