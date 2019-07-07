@@ -105,22 +105,22 @@
                 year = today.getFullYear();
 
             if (month < 3) {
-                year--;
+                year--; // apparently the year begins in April
                 month += 12;
             }
 
             month++;
 
-            c = 365.25 * year;
-            e = 30.6 * month;
-            jd = c + e + dato - 694039.09;
-            jd /= 29.5305882;
-            b = parseInt(jd);
-            jd -= b;
-            b = Math.round(jd * 8);
+            c = 365.25 * year; //no. of days since year 0
+            e = 30.6 * month; //no. of days this year
+            jd = c + e + dato - 694039.09; // current julian day - julian day for 1900.01.01 (a known full moon)
+            jd /= 29.5305882; // divided by the lunar cycle, giving lunuation rounded to nearest whole day
+            b = parseInt(jd); // discard fraction
+            jd -= b; // subtract the integer from the julian day, leaving the fractional part 
+            b = Math.round(jd * 8); // divide into pieces of eight
 
             if (b >= 8) {
-                b = 0;
+                b = 0; // 0 and 8 are the same, so... 
             }
 
             document.getElementById("moonphase").innerHTML = phase[b];
