@@ -7,16 +7,15 @@
 <html>
 
 <body>
-
     <p id="xdate">Date</p><br>
     <span id="time">Time</span>
     <span id="ampm"></span> <br><br>
     <h1>
-        <span id="greeting">Greetings,</span>
+        <span id="greeting">Hello,</span>
         <span>Jerry.</span>
     </h1>
     <h2 id="moonphase"> - </h2>
-    <h2 id="message">Hmm.. something went wrong...</h2>
+    <h2 id="message">Uh oh... something went wrong.</h2>
 
     <!-- JavaScript Starts Here -->
     <script>
@@ -75,7 +74,7 @@
                 hour = 12;
             }
 
-            min = (parseInt(min, 10) < 10 ? "0" : "") + min;
+            min = (parseInt(min, 10) < 10 ? "0" : "") + min; // with leading zero
             var fullTime = hour + ":" + min;
 
             document.getElementById("time").innerHTML = fullTime;
@@ -84,8 +83,8 @@
 
         function setGreet() {
             var today = new Date(),
-                hour = today.getHours();
-            greeting = document.getElementById("greeting");
+                hour = today.getHours(),
+                greeting = document.getElementById("greeting");
 
             if (hour < 12) {
                 greeting.textContent = "Good morning, ";
