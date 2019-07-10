@@ -9,13 +9,14 @@
 <body>
 
     <p id="xdate">Date</p><br>
-    <p id="time">Time</p><br><br>
+    <span id="time">Time</span>
+    <span id="ampm"></span> <br><br>
     <h1>
         <span id="greeting">Greetings,</span>
-        <span>Jerry</span>
+        <span>Jerry.</span>
     </h1>
     <h2 id="moonphase"> - </h2>
-    <h2 id="message">I created this</h2>
+    <h2 id="message">Hmm.. something went wrong...</h2>
 
     <!-- JavaScript Starts Here -->
     <script>
@@ -60,6 +61,13 @@
             var today = new Date(),
                 hour = today.getHours(),
                 min = today.getMinutes();
+            var amPm;
+
+            if (hour < 12) {
+                amPm = "am";
+            } else if (hour >= 12) {
+                amPm = "pm";
+            }
 
             if (hour > 12) {
                 hour = hour - 12;
@@ -71,6 +79,7 @@
             var fullTime = hour + ":" + min;
 
             document.getElementById("time").innerHTML = fullTime;
+            document.getElementById("ampm").innerHTML = amPm;
         }
 
         function setGreet() {

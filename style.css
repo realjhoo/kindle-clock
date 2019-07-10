@@ -17,6 +17,12 @@ body {
    font-size: 15rem;
 }
 
+#ampm {
+   font-size: 2rem;
+   opacity: 0.6;
+   margin-left: -0.5rem;
+}
+
 h2 {
    margin-bottom: 0.5rem;
    opacity: 0.6;
