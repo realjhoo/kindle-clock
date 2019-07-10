@@ -20,7 +20,7 @@
     <!-- JavaScript Starts Here -->
     <script>
         function showDate() {
-            var days = [
+            const days = [
                 "Sunday",
                 "Monday",
                 "Tuesday",
@@ -30,7 +30,7 @@
                 "Saturday"
             ];
 
-            var months = [
+            const months = [
                 "January",
                 "February",
                 "March",
@@ -96,7 +96,7 @@
         }
 
         function showPhase() {
-            var phase = [
+            const phase = [
                 "New Moon",
                 "Waxing Crescent Moon",
                 "First Quarter Moon",
@@ -120,15 +120,15 @@
             month++;
 
             c = 365.25 * year; //no. of days since year 0
-            e = 30.6 * month; //no. of days this year
+            e = 30.6 * month; //no. of days this month
             jd = c + e + dato - 694039.09; // current julian day - julian day for 1900.01.01 (a known full moon)
-            jd /= 29.5305882; // divided by the lunar cycle, giving lunuation rounded to nearest whole day
+            jd /= 29.5305882; // divided by the lunar cycle, giving lunation rounded to nearest whole day
             b = parseInt(jd); // discard fraction
             jd -= b; // subtract the integer from the julian day, leaving the fractional part
             b = Math.round(jd * 8); // divide into pieces of eight
 
             if (b >= 8) {
-                b = 0; // 0 and 8 are the same, so...
+                b = 0; // 0 and 8 are the same, so, reset
             }
 
             document.getElementById("moonphase").innerHTML = phase[b];
@@ -152,6 +152,8 @@
                 return "Anniversary";
             } else if (today.getMonth() === 5 && today.getDate() === 14) {
                 return "Flag Day";
+            } else if (today.getMonth() === 5 && today.getDate() === 21) {
+                return "Ancesors Day"
             } else if (today.getMonth() === 5 && today.getDate() === 24) {
                 return "Penny the Dog Day";
             } else if (today.getMonth() === 6 && today.getDate() === 2) {
@@ -182,7 +184,7 @@
         }
 
         function rndMessage() {
-            var randomMessages = [
+            const randomMessages = [
                 "You matter.",
                 "Never stop dreaming",
                 "Be creative.",
@@ -231,9 +233,8 @@
 
             if (message == "random") {
                 message = rndMessage();
-            } else {
-                message = "It's a Kindle Clock!";
             }
+
             document.getElementById("message").innerHTML = message;
         }
 
@@ -254,7 +255,7 @@
             setTimeout(main, 5000);
 
         }
-        showMessage(); // to set initial message
+        showMessage(); // set initial message
         main();
     </script>
 
