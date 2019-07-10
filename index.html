@@ -15,7 +15,7 @@
         <span>Jerry</span>
     </h1>
     <h2 id="moonphase"> - </h2>
-    <h2>I created this</h2>
+    <h2 id="message">I created this</h2>
 
     <!-- JavaScript Starts Here -->
     <script>
@@ -127,14 +127,126 @@
 
         }
 
+        function getMessage() {
+            var today = new Date();
+
+            if (today.getMonth() === 1 && today.getDate() === 1) {
+                return "New Year's Day";
+            } else if (today.getMonth() === 0 && today.getDate() === 25) {
+                return "You & Me Day";
+            } else if (today.getMonth() === 1 && today.getDate() === 14) {
+                return "Cam's Birthday"
+            } else if (today.getMonth() === 2 && today.getDate() === 17) {
+                return "St Patrick's Day";
+            } else if (today.getMonth() === 4 && today.getDate() === 25) {
+                return "St. Bede's Day";
+            } else if (today.getMonth() === 5 && today.getDate() === 11) {
+                return "Anniversary";
+            } else if (today.getMonth() === 5 && today.getDate() === 14) {
+                return "Flag Day";
+            } else if (today.getMonth() === 5 && today.getDate() === 24) {
+                return "Penny the Dog Day";
+            } else if (today.getMonth() === 6 && today.getDate() === 2) {
+                return "Dad's Birthday";
+            } else if (today.getMonth() === 6 && today.getDate() === 4) {
+                return "Independence Day";
+            } else if (today.getMonth() === 6 && today.getDate() === 6) {
+                return "Happy Birthday!";
+            } else if (today.getMonth() === 6 && today.getDate() === 31) {
+                return "Lisa's Birthday";
+            } else if (today.getMonth() === 7 && today.getDate() === 1) {
+                return "Swiss National Day";
+            } else if (today.getMonth() === 8 && today.getDate() === 27) {
+                return "Hans arrived in America (1710)";
+            } else if (today.getMonth() === 9 && today.getDate() === 31) {
+                return "Halloween";
+            } else if (today.getMonth() === 10 && today.getDate() === 11) {
+                return "Veteran's Day";
+            } else if (today.getMonth() === 11 && today.getDate() === 24) {
+                return "Yule Eve";
+            } else if (today.getMonth() === 11 && today.getDate() === 25) {
+                return "Yule";
+            } else if (today.getMonth() === 11 && today.getDate() === 31) {
+                return "New Year's Eve";
+            } else {
+                return "random";
+            }
+        }
+
+        function rndMessage() {
+            var randomMessages = [
+                "You matter.",
+                "Never stop dreaming",
+                "Be creative.",
+                "Live simply.",
+                "Remember who you are.",
+                "Trust your intuition.",
+                "Choose joy.",
+                "Be yourself.",
+                "Focus on the positive.",
+                "Create.",
+                "Shouldn't you be coding?",
+                "Hail, Thunar!",
+                "We invented everything.",
+                "Beagle nationalism.",
+                "Honor your ancestors.",
+                "Today's the day.",
+                "Be a jarl.",
+                "I created this.",
+                "The first Noble Virtue is Courage.",
+                "The second Noble Virtue is Truth.",
+                "The third Noble Virtue is Honor.",
+                "The fourth Noble Virtue is Fidelity.",
+                "The fifth Noble Virtue is Discipline.",
+                "The sixth Noble Virtue is Hospitality.",
+                "The seventh Noble Virtue is Self-Reliance.",
+                "The eighth Noble Virtue is Industriousness.",
+                "The ninth Noble Virtue is Perseverance.",
+                "Strength is better than weakness.",
+                "Courage is better than cowardice.",
+                "Joy is better than guilt.",
+                "Honor is better than dishonor.",
+                "Freedom is better than slavery.",
+                "Kinship is better than alienation.",
+                "Realism is better than dogmatism.",
+                "Vigor is better than lifelessness.",
+                "Ancestry is better than rootlessness."
+            ];
+            var max = randomMessages.length;
+            var rndNum = Math.floor(Math.random() * max);
+            return randomMessages[rndNum];
+        }
+
+        function showMessage() {
+            var message = "";
+            message = getMessage();
+
+            if (message == "random") {
+                message = rndMessage();
+            } else {
+                message = "It's a Kindle Clock!";
+            }
+            document.getElementById("message").innerHTML = message;
+        }
+
         function main() {
             showDate();
             showTime();
             setGreet();
             showPhase();
-            setTimeout(main, 5000);
-        }
+            var now = new Date(),
+                hour = now.getHours(),
+                minute = now.getMinutes(),
+                seconds = now.getSeconds();
 
+            if (hour == 0 && minute == 0 && seconds <= 7) {
+                showMessage();
+            }
+
+            setTimeout(main, 5000);
+
+        }
+        showMessage(); // to set initial message
         main();
     </script>
 
