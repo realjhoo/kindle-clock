@@ -69,7 +69,7 @@
             }
 
             if (hour > 12) {
-                hour = hour - 12;
+                hour -= 12;
             } else if (hour == 0) {
                 hour = 12;
             }
@@ -132,7 +132,6 @@
             }
 
             document.getElementById("moonphase").innerHTML = phase[b];
-
         }
 
         function getMessage() {
@@ -153,7 +152,7 @@
             } else if (today.getMonth() === 5 && today.getDate() === 14) {
                 return "Flag Day";
             } else if (today.getMonth() === 5 && today.getDate() === 21) {
-                return "Ancesors Day"
+                return "Ancestors Day"
             } else if (today.getMonth() === 5 && today.getDate() === 24) {
                 return "Penny the Dog Day";
             } else if (today.getMonth() === 6 && today.getDate() === 2) {
@@ -253,8 +252,8 @@
             }
 
             setTimeout(main, 5000);
-
         }
+
         showMessage(); // set initial message
         main();
     </script>
