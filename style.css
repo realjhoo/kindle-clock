@@ -23,7 +23,10 @@ body {
    margin-left: -0.5rem;
 }
 
+#moonphase {
+   margin-top: 0.75rem;
+}
+
 h2 {
-   margin-bottom: 0.5rem;
    opacity: 0.6;
 }
